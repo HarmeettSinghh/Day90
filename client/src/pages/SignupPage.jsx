@@ -82,7 +82,10 @@ export default function SignupPage() {
         transition={{ duration: 0.35 }}
       >
         <div className="auth-header">
-          <Link to="/" className="auth-logo">Day 90</Link>
+          <Link to="/" className="auth-logo" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+            <img src="/favicon.svg" alt="Day 90" width="28" height="28" style={{ borderRadius: '7px' }} />
+            <span>Day 90</span>
+          </Link>
           <h1 className="h2" style={{ marginTop: 'var(--space-2)' }}>Begin your 90 days</h1>
           <p className="text-muted text-sm">
             Give your wellness routine an honest, scientifically grounded chance.

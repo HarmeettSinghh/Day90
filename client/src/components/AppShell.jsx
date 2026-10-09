@@ -66,7 +66,10 @@ export default function AppShell() {
       {/* Top nav — mobile/tablet only */}
       <nav className="nav app-top-nav" aria-label="Main navigation">
         <div className="nav__inner">
-          <span className="nav__logo">Day 90</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={() => navigate('/')}>
+            <img src="/favicon.svg" alt="Day 90" width="24" height="24" style={{ borderRadius: '6px', flexShrink: 0 }} />
+            <span className="nav__logo">Day 90</span>
+          </div>
           <div className="row row--gap-3">
             {isDemo && <span className="badge badge--demo">Demo</span>}
             <span className="text-sm text-muted">{user?.name}</span>
@@ -93,7 +96,27 @@ export default function AppShell() {
 
         {/* Desktop Sidebar */}
         <aside className="sidebar" aria-label="Sidebar navigation">
-          <span className="sidebar__logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>Day 90</span>
+          <div 
+            onClick={() => navigate('/')} 
+            style={{ 
+              cursor: 'pointer', 
+              padding: '0 var(--space-3)', 
+              marginBottom: 'var(--space-6)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px'
+            }}
+          >
+            <img src="/favicon.svg" alt="Day 90" width="32" height="32" style={{ borderRadius: '8px', flexShrink: 0 }} />
+            <div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-xl)', fontWeight: 600, color: 'var(--ink)', lineHeight: 1.1 }}>
+                Day 90
+              </div>
+              <div style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', fontWeight: 600, marginTop: '2px' }}>
+                Adherence Engine
+              </div>
+            </div>
+          </div>
 
           {isDemo && (
             <div style={{ padding: 'var(--space-2) var(--space-3)', marginBottom: 'var(--space-3)', background: 'var(--accent-faint)', borderRadius: 'var(--radius-md)', border: '1px solid rgba(196,105,42,0.2)' }}>

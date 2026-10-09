@@ -58,9 +58,15 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           onClick={() => navigate('/')}
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}
         >
-          Day 90
+          <img src="/favicon.svg" alt="Day 90" width="34" height="34" style={{ borderRadius: '8px', flexShrink: 0 }} />
+          <div>
+            <div style={{ lineHeight: 1.1 }}>Day 90</div>
+            <div style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', fontWeight: 600, marginTop: '2px' }}>
+              Adherence &amp; Verdict Engine
+            </div>
+          </div>
         </motion.div>
 
         <div className="landing__nav-actions">

@@ -73,8 +73,14 @@ export default function LoginPage() {
         transition={{ duration: 0.4 }}
       >
         <div className="auth-card__header">
-          <Link to="/" className="auth-card__back">← Back</Link>
-          <h1 className="display-sm" style={{ marginTop: 'var(--space-4)' }}>Welcome back.</h1>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-2)' }}>
+            <Link to="/" className="auth-card__back">← Back</Link>
+            <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+              <img src="/favicon.svg" alt="Day 90" width="22" height="22" style={{ borderRadius: '5px' }} />
+              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, color: 'var(--ink)', fontSize: 'var(--text-sm)' }}>Day 90</span>
+            </Link>
+          </div>
+          <h1 className="display-sm" style={{ marginTop: 'var(--space-2)' }}>Welcome back.</h1>
           <p className="text-muted text-sm" style={{ marginTop: 'var(--space-2)' }}>
             Log in to see your progress.
           </p>
