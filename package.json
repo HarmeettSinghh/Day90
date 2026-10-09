@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Day 90 — Full-stack consumer health adherence & evaluation system for Mosaic Wellness",
   "scripts": {
+    "start": "npm --prefix server start",
+    "build": "npm --prefix server install",
     "dev:server": "npm --prefix server run dev",
     "dev:client": "npm --prefix client run dev",
     "build:client": "npm --prefix client run build",
