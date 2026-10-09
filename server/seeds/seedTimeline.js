@@ -4,7 +4,9 @@
  * Requires MONGODB_URI in .env
  */
 
-require('dotenv').config({ path: '../.env' });
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+require('dotenv').config();
 const mongoose = require('mongoose');
 const TimelineContent = require('../src/models/TimelineContent');
 
@@ -133,7 +135,7 @@ async function seed() {
     await TimelineContent.findOneAndUpdate(
       { category: data.category },
       data,
-      { upsert: true, new: true }
+      { upsert: true, returnDocument: 'after' }
     );
     console.log(`✓ Seeded timeline for: ${data.category}`);
   }

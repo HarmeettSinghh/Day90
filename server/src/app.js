@@ -47,6 +47,14 @@ app.use(
         return callback(null, true);
       }
 
+      // Allow Vercel deployments (*.vercel.app)
+      try {
+        const url = new URL(origin);
+        if (url.hostname.endsWith('.vercel.app')) {
+          return callback(null, true);
+        }
+      } catch {}
+
       return callback(null, false);
     },
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],

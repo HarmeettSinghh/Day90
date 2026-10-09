@@ -94,4 +94,49 @@ Runs all 42 automated tests covering verdict rules, time windows, and adherence 
 ## 🛡️ Privacy & Compliance
 - **Photos Never Leave the Phone**: Handled via browser IndexedDB directly.
 - **Account Deletion**: Complete cascade delete route (`DELETE /api/account`) ensuring GDPR/Indian DPDP compliance.
-# Day90
+
+---
+
+## 🌐 Production Deployment Guide
+
+### Part 1: Cloud Database (MongoDB Atlas)
+1. Sign up for free at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+2. Create a free shared cluster (**M0 Free Tier**).
+3. Under **Security → Database Access**, create a user with username & password (e.g. `day90_admin`).
+4. Under **Security → Network Access**, add IP Address `0.0.0.0/0` (Allow Access from Anywhere) so Render can connect.
+5. In your cluster dashboard, click **Connect → Drivers** and copy your connection string:
+   ```
+   mongodb+srv://<username>:<password>@<cluster>.mongodb.net/day90?retryWrites=true&w=majority
+   ```
+
+### Part 2: Backend on Render
+1. Sign in to [Render](https://render.com).
+2. Click **New + → Web Service** and connect your GitHub repository.
+3. Configure the service settings:
+   - **Root Directory**: `server`
+   - **Build Command**: `npm install`
+   - **Start Command**: `node server.js`
+   - **Instance Type**: Free
+4. Add **Environment Variables** in Render dashboard:
+   - `MONGODB_URI`: `<your-mongodb-atlas-connection-string>`
+   - `JWT_SECRET`: `<a-long-random-secret-string>`
+   - `GROQ_API_KEY`: `<your-groq-api-key>`
+   - `GROQ_MODEL`: `qwen/qwen3.8-27b`
+   - `CLIENT_ORIGIN`: `https://your-frontend-app.vercel.app` (update once Vercel is deployed)
+   - `NODE_ENV`: `production`
+5. Click **Create Web Service**. Once deployed, copy your Render URL (e.g. `https://day90-api.onrender.com`).
+6. *(Optional)* Seed the timeline content: in Render's Shell tab, run `npm run seed`.
+
+### Part 3: Frontend on Vercel
+1. Sign in to [Vercel](https://vercel.com) and click **Add New... → Project**.
+2. Import your GitHub repository.
+3. In the project setup:
+   - **Framework Preset**: Vite
+   - **Root Directory**: Click "Edit" and choose `client`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. Add **Environment Variable**:
+   - `VITE_API_URL`: `<your-render-backend-url>` (e.g. `https://day90-api.onrender.com` without trailing slash)
+5. Click **Deploy**. Vercel will build the frontend with `client/vercel.json` routing rules enabled.
+6. Copy your Vercel URL (e.g. `https://day90-tracker.vercel.app`) and paste it as `CLIENT_ORIGIN` in your Render environment variables.
+
