@@ -1,0 +1,14 @@
+{
+  "name": "day90-workspace",
+  "version": "1.0.0",
+  "description": "Day 90 — Full-stack consumer health adherence & evaluation system for Mosaic Wellness",
+  "scripts": {
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "test:server": "npm --prefix server test",
+    "seed:timeline": "npm --prefix server run seed:timeline"
+  },
+  "author": "Navneet Singh",
+  "license": "ISC"
+}
