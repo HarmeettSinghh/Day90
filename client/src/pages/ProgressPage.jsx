@@ -39,6 +39,7 @@ export default function ProgressPage() {
   const { routine, dayStrip, weeklyLogs, stats } = progressData;
   const adherencePct = Math.round((stats.adherence || 0) * 100);
   const currentDay = Math.min(stats.daysElapsed || 1, 90);
+  const daysMissed = stats.daysMissed ?? Math.max(0, (stats.daysElapsed || 0) - (stats.daysUsed || 0));
 
   const getTrendBadge = (trend) => {
     switch (trend) {
@@ -90,7 +91,7 @@ export default function ProgressPage() {
             </div>
             <div className="strip-stat">
               <span className="label text-xs">Days Missed</span>
-              <span className="val">{stats.daysMissed} days</span>
+              <span className="val">{daysMissed} days</span>
             </div>
             <div className="strip-stat">
               <span className="label text-xs">Trailing Adherence</span>

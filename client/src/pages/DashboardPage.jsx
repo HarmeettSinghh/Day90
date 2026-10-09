@@ -261,13 +261,6 @@ export default function DashboardPage() {
           </p>
 
           <DayStrip days={dayStrip} currentDay={currentDay} />
-
-          <div className="strip-legend">
-            <span className="legend-item"><span className="legend-dot done"></span> Done</span>
-            <span className="legend-item"><span className="legend-dot today"></span> Today</span>
-            <span className="legend-item"><span className="legend-dot missed"></span> Missed</span>
-            <span className="legend-item"><span className="legend-dot milestone"></span> Milestones (W4, W8, W12)</span>
-          </div>
         </section>
 
         {/* Key Metrics Grid */}

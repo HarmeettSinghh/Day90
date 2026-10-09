@@ -304,6 +304,12 @@ export default function WeeklyLogPage() {
           gap: var(--space-2);
           margin-top: var(--space-1);
         }
+        @media (min-width: 640px) {
+          .rating-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          }
+        }
         .rating-option {
           display: flex;
           align-items: center;
