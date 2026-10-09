@@ -132,7 +132,7 @@ export default function DashboardPage() {
 
   return (
     <div className="dashboard-page">
-      <div className="container">
+      <div className="page-content">
         {/* Banner Alert if any */}
         <AnimatePresence>
           {bannerNotice && (
@@ -399,8 +399,8 @@ export default function DashboardPage() {
 
       <style>{`
         .dashboard-page {
-          padding-top: var(--space-4);
-          padding-bottom: var(--space-8);
+          width: 100%;
+          min-height: 100%;
         }
         .dashboard-hero {
           margin-bottom: var(--space-6);

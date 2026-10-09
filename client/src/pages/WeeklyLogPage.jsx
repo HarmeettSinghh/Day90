@@ -133,7 +133,7 @@ export default function WeeklyLogPage() {
 
   return (
     <div className="weekly-page">
-      <div className="container">
+      <div className="page-content">
         <header className="weekly-header">
           <span className="badge badge--accent">Weekly Checkpoint</span>
           <h1 className="h1" style={{ marginTop: 'var(--space-2)' }}>
@@ -293,8 +293,7 @@ export default function WeeklyLogPage() {
 
       <style>{`
         .weekly-page {
-          padding-top: var(--space-4);
-          padding-bottom: var(--space-8);
+          width: 100%;
         }
         .weekly-header {
           margin-bottom: var(--space-5);
